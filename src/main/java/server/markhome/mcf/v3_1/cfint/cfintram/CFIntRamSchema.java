@@ -1,7 +1,7 @@
 // Description: Java 25 implementation of an in-memory RAM CFInt schema.
 
 /*
- *	io.github.msobkow.CFInt
+ *	server.markhome.mcf.CFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
@@ -32,23 +32,23 @@
  *	
  */
 
-package io.github.msobkow.v3_1.cfint.cfintram;
+package server.markhome.mcf.v3_1.cfint.cfintram;
 
 import java.lang.reflect.*;
 import java.net.*;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
-import io.github.msobkow.v3_1.cflib.*;
-import io.github.msobkow.v3_1.cflib.dbutil.*;
+import server.markhome.mcf.v3_1.cflib.*;
+import server.markhome.mcf.v3_1.cflib.dbutil.*;
 
-import io.github.msobkow.v3_1.cfsec.cfsec.*;
-import io.github.msobkow.v3_1.cfint.cfint.*;
-import io.github.msobkow.v3_1.cfsec.cfsecobj.*;
-import io.github.msobkow.v3_1.cfint.cfintobj.*;
-import io.github.msobkow.v3_1.cfsec.cfsec.buff.*;
-import io.github.msobkow.v3_1.cfint.cfint.buff.*;
-import io.github.msobkow.v3_1.cfint.cfintsaxloader.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.*;
+import server.markhome.mcf.v3_1.cfint.cfint.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecobj.*;
+import server.markhome.mcf.v3_1.cfint.cfintobj.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.*;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.*;
+import server.markhome.mcf.v3_1.cfint.cfintsaxloader.*;
 
 public class CFIntRamSchema
 	extends CFIntBuffSchema

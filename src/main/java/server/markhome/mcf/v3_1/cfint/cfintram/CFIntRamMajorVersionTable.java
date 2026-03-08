@@ -2,7 +2,7 @@
 // Description: Java 25 in-memory RAM DbIO implementation for MajorVersion.
 
 /*
- *	io.github.msobkow.CFInt
+ *	server.markhome.mcf.CFInt
  *
  *	Copyright (c) 2016-2026 Mark Stephen Sobkow
  *	
@@ -33,7 +33,7 @@
  *	
  */
 
-package io.github.msobkow.v3_1.cfint.cfintram;
+package server.markhome.mcf.v3_1.cfint.cfintram;
 
 import java.math.*;
 import java.sql.*;
@@ -41,15 +41,15 @@ import java.text.*;
 import java.time.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
-import io.github.msobkow.v3_1.cflib.*;
-import io.github.msobkow.v3_1.cflib.dbutil.*;
+import server.markhome.mcf.v3_1.cflib.*;
+import server.markhome.mcf.v3_1.cflib.dbutil.*;
 
-import io.github.msobkow.v3_1.cfsec.cfsec.*;
-import io.github.msobkow.v3_1.cfint.cfint.*;
-import io.github.msobkow.v3_1.cfsec.cfsec.buff.*;
-import io.github.msobkow.v3_1.cfint.cfint.buff.*;
-import io.github.msobkow.v3_1.cfsec.cfsecobj.*;
-import io.github.msobkow.v3_1.cfint.cfintobj.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.*;
+import server.markhome.mcf.v3_1.cfint.cfint.*;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.*;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecobj.*;
+import server.markhome.mcf.v3_1.cfint.cfintobj.*;
 
 /*
  *	CFIntRamMajorVersionTable in-memory RAM DbIO implementation

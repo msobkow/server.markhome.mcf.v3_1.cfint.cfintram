@@ -2,16 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.github.msobkow</groupId>
-    <artifactId>io.github.msobkow.v3_1</artifactId>
+    <groupId>server.markhome.mcf</groupId>
+    <artifactId>server.markhome.mcf.v3_1</artifactId>
     <version>3.1.42</version>
   </parent>
 
-  <groupId>io.github.msobkow.v3_1</groupId>
-  <artifactId>io.github.msobkow.v3_1.cfint.cfintram</artifactId>
+  <groupId>server.markhome.mcf.v3_1</groupId>
+  <artifactId>server.markhome.mcf.v3_1.cfint.cfintram</artifactId>
   <version>3.1.42</version>
-  <name>io.github.msobkow.v3_1.cfint.cfintram</name>
-  <description>msobkow 3.1.42 CFInt CFIntRam - Buffer RAM storageimplementation package</description>
+  <name>server.markhome.mcf.v3_1.cfint.cfintram</name>
+  <description>mcf 3.1.42 CFInt CFIntRam - Buffer RAM storageimplementation package</description>
   <url>mailto:mark.sobkow@gmail.com</url>
 
   <properties>
@@ -30,14 +30,14 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.github.msobkow.v3_1</groupId>
-      <artifactId>io.github.msobkow.v3_1.cflib</artifactId>
-      <version>3.1</version>
+      <groupId>server.markhome.mcf.v3_1</groupId>
+      <artifactId>server.markhome.mcf.v3_1.cflib</artifactId>
+      <version>3.1.42</version>
     </dependency>
     <dependency>
-      <groupId>io.github.msobkow.v3_1</groupId>
-      <artifactId>io.github.msobkow.v3_1.cflib.dbutil</artifactId>
-      <version>3.1</version>
+      <groupId>server.markhome.mcf.v3_1</groupId>
+      <artifactId>server.markhome.mcf.v3_1.cflib.dbutil</artifactId>
+      <version>3.1.42</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -77,38 +77,38 @@
 		<version>${jakarta-annotation-api.version}</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfsec.cfsec</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfsec.cfsec</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfint.cfint</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfint.cfint</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfsec.cfsecbuff</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecbuff</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfint.cfintbuff</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfint.cfintbuff</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfsec.cfsecsaxloader</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecsaxloader</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfint.cfintsaxloader</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfint.cfintsaxloader</artifactId>
         <version>3.1.42</version>
     </dependency>
     <dependency>
-        <groupId>io.github.msobkow.v3_1</groupId>
-        <artifactId>io.github.msobkow.v3_1.cfsec.cfsecram</artifactId>
+        <groupId>server.markhome.mcf.v3_1</groupId>
+        <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecram</artifactId>
         <version>3.1.42</version>
     </dependency>
   </dependencies>
@@ -117,12 +117,12 @@
 		<repository>
 			<id>nexus-releases</id>
 			<name>Nexus release repository</name>
-			<url>http://nexus3.msobkow.github.io:8081/repository/msobkow.github.io-hosted/</url>
+			<url>http://nexus3.mcf.markhome.server:8081/repository/mcf.markhome.server-hosted/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Nexus release repository</name>
-			<url>http://nexus3.msobkow.github.io:8081/repository/msobkow.github.io-hosted/</url>
+			<url>http://nexus3.mcf.markhome.server:8081/repository/mcf.markhome.server-hosted/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -158,7 +158,7 @@
 				</executions>
 				<configuration>
 					<serverId>nexus</serverId>
-					<nexusUrl>http://nexus3.msobkow.github.io:8081/repository/msobkow.github.io-hosted/</nexusUrl>
+					<nexusUrl>http://nexus3.mcf.markhome.server:8081/repository/mcf.markhome.server-hosted/</nexusUrl>
 					<skipStaging>true</skipStaging>
 				</configuration>
 			</plugin>
