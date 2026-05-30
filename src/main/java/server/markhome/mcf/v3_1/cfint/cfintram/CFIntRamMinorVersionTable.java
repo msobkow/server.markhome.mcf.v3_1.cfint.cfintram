@@ -456,7 +456,7 @@ public class CFIntRamMinorVersionTable
 		ICFIntMinorVersion iBuff )
 	{
 		CFIntBuffMinorVersion Buff = (CFIntBuffMinorVersion)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFIntBuffMinorVersion existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

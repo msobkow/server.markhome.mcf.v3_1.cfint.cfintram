@@ -281,7 +281,7 @@ public class CFIntRamMimeTypeTable
 		ICFIntMimeType iBuff )
 	{
 		CFIntBuffMimeType Buff = (CFIntBuffMimeType)ensureRec(iBuff);
-		Integer pkey = Buff.getPKey();
+		Integer pkey = (Integer)Buff.getPKey();
 		CFIntBuffMimeType existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

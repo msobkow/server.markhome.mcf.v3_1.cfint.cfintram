@@ -456,7 +456,7 @@ public class CFIntRamTopProjectTable
 		ICFIntTopProject iBuff )
 	{
 		CFIntBuffTopProject Buff = (CFIntBuffTopProject)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFIntBuffTopProject existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

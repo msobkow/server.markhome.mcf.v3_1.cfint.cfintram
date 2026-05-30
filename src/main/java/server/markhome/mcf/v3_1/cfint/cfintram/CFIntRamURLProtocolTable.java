@@ -346,7 +346,7 @@ public class CFIntRamURLProtocolTable
 		ICFIntURLProtocol iBuff )
 	{
 		CFIntBuffURLProtocol Buff = (CFIntBuffURLProtocol)ensureRec(iBuff);
-		Integer pkey = Buff.getPKey();
+		Integer pkey = (Integer)Buff.getPKey();
 		CFIntBuffURLProtocol existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

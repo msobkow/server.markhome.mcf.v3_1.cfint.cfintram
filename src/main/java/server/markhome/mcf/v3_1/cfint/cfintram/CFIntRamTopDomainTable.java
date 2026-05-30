@@ -456,7 +456,7 @@ public class CFIntRamTopDomainTable
 		ICFIntTopDomain iBuff )
 	{
 		CFIntBuffTopDomain Buff = (CFIntBuffTopDomain)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFIntBuffTopDomain existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),

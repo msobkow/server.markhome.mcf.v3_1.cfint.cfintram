@@ -456,7 +456,7 @@ public class CFIntRamLicenseTable
 		ICFIntLicense iBuff )
 	{
 		CFIntBuffLicense Buff = (CFIntBuffLicense)ensureRec(iBuff);
-		CFLibDbKeyHash256 pkey = Buff.getPKey();
+		CFLibDbKeyHash256 pkey = (CFLibDbKeyHash256)Buff.getPKey();
 		CFIntBuffLicense existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),
