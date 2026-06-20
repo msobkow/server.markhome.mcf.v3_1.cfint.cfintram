@@ -81,11 +81,11 @@ public class CFIntRamLicenseTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFIntLicense.CLASS_CODE) {
-				return( ((CFIntBuffLicenseDefaultFactory)(schema.getFactoryLicense())).ensureRec((ICFIntLicense)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFIntLicense.CLASS_CODE:
+					return(((CFIntBuffLicenseFactoryService)(schema.getCFIntFactory().getFactoryLicense())).ensureRec((ICFIntLicense)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -100,13 +100,13 @@ public class CFIntRamLicenseTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextLicenseIdGen();
 		Buff.setRequiredId( pkey );
-		CFIntBuffLicenseByLicnTenantIdxKey keyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey keyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		keyLicnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffLicenseByDomainIdxKey keyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey keyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 		keyDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntBuffLicenseByUNameIdxKey keyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey keyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -198,7 +198,7 @@ public class CFIntRamLicenseTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFIntLicense.CLASS_CODE) {
-				CFIntBuffLicense retbuff = ((CFIntBuffLicense)(schema.getFactoryLicense().newRec()));
+				CFIntBuffLicense retbuff = ((CFIntBuffLicense)(schema.getCFIntFactory().getFactoryLicense().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -258,7 +258,7 @@ public class CFIntRamLicenseTable
 		CFLibDbKeyHash256 TenantId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByLicnTenantIdx";
-		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 
 		key.setRequiredTenantId( TenantId );
 		ICFIntLicense[] recArray;
@@ -286,7 +286,7 @@ public class CFIntRamLicenseTable
 		CFLibDbKeyHash256 TopDomainId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByDomainIdx";
-		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 
 		key.setRequiredTopDomainId( TopDomainId );
 		ICFIntLicense[] recArray;
@@ -315,7 +315,7 @@ public class CFIntRamLicenseTable
 		String Name )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByUNameIdx";
-		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 
 		key.setRequiredTopDomainId( TopDomainId );
 		key.setRequiredName( Name );
@@ -473,23 +473,23 @@ public class CFIntRamLicenseTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntBuffLicenseByLicnTenantIdxKey existingKeyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey existingKeyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		existingKeyLicnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffLicenseByLicnTenantIdxKey newKeyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey newKeyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		newKeyLicnTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffLicenseByDomainIdxKey existingKeyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey existingKeyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 		existingKeyDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntBuffLicenseByDomainIdxKey newKeyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey newKeyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 		newKeyDomainIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 
-		CFIntBuffLicenseByUNameIdxKey existingKeyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey existingKeyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffLicenseByUNameIdxKey newKeyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey newKeyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredTopDomainId( Buff.getRequiredTopDomainId() );
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -604,13 +604,13 @@ public class CFIntRamLicenseTable
 				"deleteLicense",
 				pkey );
 		}
-		CFIntBuffLicenseByLicnTenantIdxKey keyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey keyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		keyLicnTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffLicenseByDomainIdxKey keyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey keyDomainIdx = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 		keyDomainIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 
-		CFIntBuffLicenseByUNameIdxKey keyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey keyUNameIdx = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 		keyUNameIdx.setRequiredTopDomainId( existing.getRequiredTopDomainId() );
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
@@ -661,7 +661,7 @@ public class CFIntRamLicenseTable
 	public void deleteLicenseByLicnTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getFactoryLicense().newByLicnTenantIdxKey();
+		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteLicenseByLicnTenantIdx( Authorization, key );
 	}
@@ -697,7 +697,7 @@ public class CFIntRamLicenseTable
 	public void deleteLicenseByDomainIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTopDomainId )
 	{
-		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getFactoryLicense().newByDomainIdxKey();
+		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntFactory().getFactoryLicense().newByDomainIdxKey();
 		key.setRequiredTopDomainId( argTopDomainId );
 		deleteLicenseByDomainIdx( Authorization, key );
 	}
@@ -734,7 +734,7 @@ public class CFIntRamLicenseTable
 		CFLibDbKeyHash256 argTopDomainId,
 		String argName )
 	{
-		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getFactoryLicense().newByUNameIdxKey();
+		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntFactory().getFactoryLicense().newByUNameIdxKey();
 		key.setRequiredTopDomainId( argTopDomainId );
 		key.setRequiredName( argName );
 		deleteLicenseByUNameIdx( Authorization, key );

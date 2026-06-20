@@ -75,11 +75,11 @@ public class CFIntRamTldTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFIntTld.CLASS_CODE) {
-				return( ((CFIntBuffTldDefaultFactory)(schema.getFactoryTld())).ensureRec((ICFIntTld)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFIntTld.CLASS_CODE:
+					return(((CFIntBuffTldFactoryService)(schema.getCFIntFactory().getFactoryTld())).ensureRec((ICFIntTld)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -94,10 +94,10 @@ public class CFIntRamTldTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextTldIdGen();
 		Buff.setRequiredId( pkey );
-		CFIntBuffTldByTenantIdxKey keyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey keyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffTldByNameIdxKey keyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey keyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Validate unique indexes
@@ -158,7 +158,7 @@ public class CFIntRamTldTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFIntTld.CLASS_CODE) {
-				CFIntBuffTld retbuff = ((CFIntBuffTld)(schema.getFactoryTld().newRec()));
+				CFIntBuffTld retbuff = ((CFIntBuffTld)(schema.getCFIntFactory().getFactoryTld().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -218,7 +218,7 @@ public class CFIntRamTldTable
 		CFLibDbKeyHash256 TenantId )
 	{
 		final String S_ProcName = "CFIntRamTld.readDerivedByTenantIdx";
-		CFIntBuffTldByTenantIdxKey key = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey key = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 
 		key.setRequiredTenantId( TenantId );
 		ICFIntTld[] recArray;
@@ -246,7 +246,7 @@ public class CFIntRamTldTable
 		String Name )
 	{
 		final String S_ProcName = "CFIntRamTld.readDerivedByNameIdx";
-		CFIntBuffTldByNameIdxKey key = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey key = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 
 		key.setRequiredName( Name );
 		ICFIntTld buff;
@@ -383,16 +383,16 @@ public class CFIntRamTldTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntBuffTldByTenantIdxKey existingKeyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey existingKeyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffTldByTenantIdxKey newKeyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey newKeyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffTldByNameIdxKey existingKeyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey existingKeyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffTldByNameIdxKey newKeyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey newKeyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Check unique indexes
@@ -475,10 +475,10 @@ public class CFIntRamTldTable
 		}
 					schema.getTableTopDomain().deleteTopDomainByTldIdx( Authorization,
 						existing.getRequiredId() );
-		CFIntBuffTldByTenantIdxKey keyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey keyTenantIdx = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffTldByNameIdxKey keyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey keyNameIdx = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
 		// Validate reverse foreign keys
@@ -525,7 +525,7 @@ public class CFIntRamTldTable
 	public void deleteTldByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFIntBuffTldByTenantIdxKey key = (CFIntBuffTldByTenantIdxKey)schema.getFactoryTld().newByTenantIdxKey();
+		CFIntBuffTldByTenantIdxKey key = (CFIntBuffTldByTenantIdxKey)schema.getCFIntFactory().getFactoryTld().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteTldByTenantIdx( Authorization, key );
 	}
@@ -561,7 +561,7 @@ public class CFIntRamTldTable
 	public void deleteTldByNameIdx( ICFSecAuthorization Authorization,
 		String argName )
 	{
-		CFIntBuffTldByNameIdxKey key = (CFIntBuffTldByNameIdxKey)schema.getFactoryTld().newByNameIdxKey();
+		CFIntBuffTldByNameIdxKey key = (CFIntBuffTldByNameIdxKey)schema.getCFIntFactory().getFactoryTld().newByNameIdxKey();
 		key.setRequiredName( argName );
 		deleteTldByNameIdx( Authorization, key );
 	}

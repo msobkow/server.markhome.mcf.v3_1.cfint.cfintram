@@ -75,11 +75,11 @@ public class CFIntRamURLProtocolTable
 		}
 		else {
 			int classCode = rec.getClassCode();
-			if (classCode == ICFIntURLProtocol.CLASS_CODE) {
-				return( ((CFIntBuffURLProtocolDefaultFactory)(schema.getFactoryURLProtocol())).ensureRec((ICFIntURLProtocol)rec) );
-			}
-			else {
-				throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
+			switch (classCode) {
+				case ICFIntURLProtocol.CLASS_CODE:
+					return(((CFIntBuffURLProtocolFactoryService)(schema.getCFIntFactory().getFactoryURLProtocol())).ensureRec((ICFIntURLProtocol)rec) );
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
 			}
 		}
 	}
@@ -94,10 +94,10 @@ public class CFIntRamURLProtocolTable
 		Integer pkey;
 		pkey = schema.nextURLProtocolIdGen();
 		Buff.setRequiredURLProtocolId( pkey );
-		CFIntBuffURLProtocolByUNameIdxKey keyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey keyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFIntBuffURLProtocolByIsSecureIdxKey keyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey keyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 		keyIsSecureIdx.setRequiredIsSecure( Buff.getRequiredIsSecure() );
 
 		// Validate unique indexes
@@ -138,7 +138,7 @@ public class CFIntRamURLProtocolTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFIntURLProtocol.CLASS_CODE) {
-				CFIntBuffURLProtocol retbuff = ((CFIntBuffURLProtocol)(schema.getFactoryURLProtocol().newRec()));
+				CFIntBuffURLProtocol retbuff = ((CFIntBuffURLProtocol)(schema.getCFIntFactory().getFactoryURLProtocol().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -198,7 +198,7 @@ public class CFIntRamURLProtocolTable
 		String Name )
 	{
 		final String S_ProcName = "CFIntRamURLProtocol.readDerivedByUNameIdx";
-		CFIntBuffURLProtocolByUNameIdxKey key = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey key = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 
 		key.setRequiredName( Name );
 		ICFIntURLProtocol buff;
@@ -216,7 +216,7 @@ public class CFIntRamURLProtocolTable
 		boolean IsSecure )
 	{
 		final String S_ProcName = "CFIntRamURLProtocol.readDerivedByIsSecureIdx";
-		CFIntBuffURLProtocolByIsSecureIdxKey key = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey key = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 
 		key.setRequiredIsSecure( IsSecure );
 		ICFIntURLProtocol[] recArray;
@@ -363,16 +363,16 @@ public class CFIntRamURLProtocolTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntBuffURLProtocolByUNameIdxKey existingKeyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey existingKeyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffURLProtocolByUNameIdxKey newKeyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey newKeyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
-		CFIntBuffURLProtocolByIsSecureIdxKey existingKeyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey existingKeyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 		existingKeyIsSecureIdx.setRequiredIsSecure( existing.getRequiredIsSecure() );
 
-		CFIntBuffURLProtocolByIsSecureIdxKey newKeyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey newKeyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 		newKeyIsSecureIdx.setRequiredIsSecure( Buff.getRequiredIsSecure() );
 
 		// Check unique indexes
@@ -433,10 +433,10 @@ public class CFIntRamURLProtocolTable
 				"deleteURLProtocol",
 				pkey );
 		}
-		CFIntBuffURLProtocolByUNameIdxKey keyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey keyUNameIdx = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffURLProtocolByIsSecureIdxKey keyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey keyIsSecureIdx = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 		keyIsSecureIdx.setRequiredIsSecure( existing.getRequiredIsSecure() );
 
 		// Validate reverse foreign keys
@@ -483,7 +483,7 @@ public class CFIntRamURLProtocolTable
 	public void deleteURLProtocolByUNameIdx( ICFSecAuthorization Authorization,
 		String argName )
 	{
-		CFIntBuffURLProtocolByUNameIdxKey key = (CFIntBuffURLProtocolByUNameIdxKey)schema.getFactoryURLProtocol().newByUNameIdxKey();
+		CFIntBuffURLProtocolByUNameIdxKey key = (CFIntBuffURLProtocolByUNameIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByUNameIdxKey();
 		key.setRequiredName( argName );
 		deleteURLProtocolByUNameIdx( Authorization, key );
 	}
@@ -519,7 +519,7 @@ public class CFIntRamURLProtocolTable
 	public void deleteURLProtocolByIsSecureIdx( ICFSecAuthorization Authorization,
 		boolean argIsSecure )
 	{
-		CFIntBuffURLProtocolByIsSecureIdxKey key = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getFactoryURLProtocol().newByIsSecureIdxKey();
+		CFIntBuffURLProtocolByIsSecureIdxKey key = (CFIntBuffURLProtocolByIsSecureIdxKey)schema.getCFIntFactory().getFactoryURLProtocol().newByIsSecureIdxKey();
 		key.setRequiredIsSecure( argIsSecure );
 		deleteURLProtocolByIsSecureIdx( Authorization, key );
 	}
