@@ -41,6 +41,11 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.buff.*;
 import server.markhome.mcf.v3_1.cfint.cfint.buff.*;
 import server.markhome.mcf.v3_1.cfint.cfintsaxloader.*;
 
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffFactoryService;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffSchema;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffFactoryService;
+
 public class CFIntRamSchema
 	extends CFIntBuffSchema
 	implements ICFIntSchema

@@ -76,18 +76,7 @@ public class CFIntRamSubProjectTable
 	}
 
 	public CFIntBuffSubProject ensureRec(ICFIntSubProject rec) {
-		if (rec == null) {
-			return( null );
-		}
-		else {
-			int classCode = rec.getClassCode();
-			switch (classCode) {
-				case ICFIntSubProject.CLASS_CODE:
-					return(((CFIntBuffSubProjectFactoryService)(schema.getCFIntFactory().getFactorySubProject())).ensureRec((ICFIntSubProject)rec) );
-				default:
-					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
-			}
-		}
+		return (((CFIntBuffSubProjectFactoryService)(schema.getCFIntBuffFactory().getFactorySubProject())).ensureRec(rec));
 	}
 
 	@Override
@@ -100,13 +89,13 @@ public class CFIntRamSubProjectTable
 		CFLibDbKeyHash256 pkey;
 		pkey = schema.nextSubProjectIdGen();
 		Buff.setRequiredId( pkey );
-		CFIntBuffSubProjectByTenantIdxKey keyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey keyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffSubProjectByTopProjectIdxKey keyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey keyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 		keyTopProjectIdx.setRequiredTopProjectId( Buff.getRequiredTopProjectId() );
 
-		CFIntBuffSubProjectByNameIdxKey keyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey keyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 		keyNameIdx.setRequiredTopProjectId( Buff.getRequiredTopProjectId() );
 		keyNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -198,7 +187,7 @@ public class CFIntRamSubProjectTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFIntSubProject.CLASS_CODE) {
-				CFIntBuffSubProject retbuff = ((CFIntBuffSubProject)(schema.getCFIntFactory().getFactorySubProject().newRec()));
+				CFIntBuffSubProject retbuff = ((CFIntBuffSubProject)(schema.getCFIntBuffFactory().getFactorySubProject().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -258,7 +247,7 @@ public class CFIntRamSubProjectTable
 		CFLibDbKeyHash256 TenantId )
 	{
 		final String S_ProcName = "CFIntRamSubProject.readDerivedByTenantIdx";
-		CFIntBuffSubProjectByTenantIdxKey key = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey key = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 
 		key.setRequiredTenantId( TenantId );
 		ICFIntSubProject[] recArray;
@@ -286,7 +275,7 @@ public class CFIntRamSubProjectTable
 		CFLibDbKeyHash256 TopProjectId )
 	{
 		final String S_ProcName = "CFIntRamSubProject.readDerivedByTopProjectIdx";
-		CFIntBuffSubProjectByTopProjectIdxKey key = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey key = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 
 		key.setRequiredTopProjectId( TopProjectId );
 		ICFIntSubProject[] recArray;
@@ -315,7 +304,7 @@ public class CFIntRamSubProjectTable
 		String Name )
 	{
 		final String S_ProcName = "CFIntRamSubProject.readDerivedByNameIdx";
-		CFIntBuffSubProjectByNameIdxKey key = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey key = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 
 		key.setRequiredTopProjectId( TopProjectId );
 		key.setRequiredName( Name );
@@ -473,23 +462,23 @@ public class CFIntRamSubProjectTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntBuffSubProjectByTenantIdxKey existingKeyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey existingKeyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 		existingKeyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffSubProjectByTenantIdxKey newKeyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey newKeyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 		newKeyTenantIdx.setRequiredTenantId( Buff.getRequiredTenantId() );
 
-		CFIntBuffSubProjectByTopProjectIdxKey existingKeyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey existingKeyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 		existingKeyTopProjectIdx.setRequiredTopProjectId( existing.getRequiredTopProjectId() );
 
-		CFIntBuffSubProjectByTopProjectIdxKey newKeyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey newKeyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 		newKeyTopProjectIdx.setRequiredTopProjectId( Buff.getRequiredTopProjectId() );
 
-		CFIntBuffSubProjectByNameIdxKey existingKeyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey existingKeyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 		existingKeyNameIdx.setRequiredTopProjectId( existing.getRequiredTopProjectId() );
 		existingKeyNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffSubProjectByNameIdxKey newKeyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey newKeyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 		newKeyNameIdx.setRequiredTopProjectId( Buff.getRequiredTopProjectId() );
 		newKeyNameIdx.setRequiredName( Buff.getRequiredName() );
 
@@ -606,13 +595,13 @@ public class CFIntRamSubProjectTable
 		}
 					schema.getTableMajorVersion().deleteMajorVersionBySubProjectIdx( Authorization,
 						existing.getRequiredId() );
-		CFIntBuffSubProjectByTenantIdxKey keyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey keyTenantIdx = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 		keyTenantIdx.setRequiredTenantId( existing.getRequiredTenantId() );
 
-		CFIntBuffSubProjectByTopProjectIdxKey keyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey keyTopProjectIdx = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 		keyTopProjectIdx.setRequiredTopProjectId( existing.getRequiredTopProjectId() );
 
-		CFIntBuffSubProjectByNameIdxKey keyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey keyNameIdx = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 		keyNameIdx.setRequiredTopProjectId( existing.getRequiredTopProjectId() );
 		keyNameIdx.setRequiredName( existing.getRequiredName() );
 
@@ -663,7 +652,7 @@ public class CFIntRamSubProjectTable
 	public void deleteSubProjectByTenantIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTenantId )
 	{
-		CFIntBuffSubProjectByTenantIdxKey key = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTenantIdxKey();
+		CFIntBuffSubProjectByTenantIdxKey key = (CFIntBuffSubProjectByTenantIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
 		deleteSubProjectByTenantIdx( Authorization, key );
 	}
@@ -699,7 +688,7 @@ public class CFIntRamSubProjectTable
 	public void deleteSubProjectByTopProjectIdx( ICFSecAuthorization Authorization,
 		CFLibDbKeyHash256 argTopProjectId )
 	{
-		CFIntBuffSubProjectByTopProjectIdxKey key = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntFactory().getFactorySubProject().newByTopProjectIdxKey();
+		CFIntBuffSubProjectByTopProjectIdxKey key = (CFIntBuffSubProjectByTopProjectIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByTopProjectIdxKey();
 		key.setRequiredTopProjectId( argTopProjectId );
 		deleteSubProjectByTopProjectIdx( Authorization, key );
 	}
@@ -736,7 +725,7 @@ public class CFIntRamSubProjectTable
 		CFLibDbKeyHash256 argTopProjectId,
 		String argName )
 	{
-		CFIntBuffSubProjectByNameIdxKey key = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntFactory().getFactorySubProject().newByNameIdxKey();
+		CFIntBuffSubProjectByNameIdxKey key = (CFIntBuffSubProjectByNameIdxKey)schema.getCFIntBuffFactory().getFactorySubProject().newByNameIdxKey();
 		key.setRequiredTopProjectId( argTopProjectId );
 		key.setRequiredName( argName );
 		deleteSubProjectByNameIdx( Authorization, key );

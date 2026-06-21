@@ -64,18 +64,7 @@ public class CFIntRamMimeTypeTable
 	}
 
 	public CFIntBuffMimeType ensureRec(ICFIntMimeType rec) {
-		if (rec == null) {
-			return( null );
-		}
-		else {
-			int classCode = rec.getClassCode();
-			switch (classCode) {
-				case ICFIntMimeType.CLASS_CODE:
-					return(((CFIntBuffMimeTypeFactoryService)(schema.getCFIntFactory().getFactoryMimeType())).ensureRec((ICFIntMimeType)rec) );
-				default:
-					throw new CFLibUnsupportedClassException(getClass(), "ensureRec", "rec", (Integer)classCode, "Classcode not recognized: " + Integer.toString(classCode));
-			}
-		}
+		return (((CFIntBuffMimeTypeFactoryService)(schema.getCFIntBuffFactory().getFactoryMimeType())).ensureRec(rec));
 	}
 
 	@Override
@@ -88,7 +77,7 @@ public class CFIntRamMimeTypeTable
 		Integer pkey;
 		pkey = schema.nextMimeTypeIdGen();
 		Buff.setRequiredMimeTypeId( pkey );
-		CFIntBuffMimeTypeByUNameIdxKey keyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey keyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		keyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Validate unique indexes
@@ -119,7 +108,7 @@ public class CFIntRamMimeTypeTable
 		else {
 			int classCode = Buff.getClassCode();
 			if (classCode == ICFIntMimeType.CLASS_CODE) {
-				CFIntBuffMimeType retbuff = ((CFIntBuffMimeType)(schema.getCFIntFactory().getFactoryMimeType().newRec()));
+				CFIntBuffMimeType retbuff = ((CFIntBuffMimeType)(schema.getCFIntBuffFactory().getFactoryMimeType().newRec()));
 				retbuff.set(Buff);
 				return( retbuff );
 			}
@@ -179,7 +168,7 @@ public class CFIntRamMimeTypeTable
 		String Name )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readDerivedByUNameIdx";
-		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 
 		key.setRequiredName( Name );
 		ICFIntMimeType buff;
@@ -298,10 +287,10 @@ public class CFIntRamMimeTypeTable
 				pkey );
 		}
 		Buff.setRequiredRevision( Buff.getRequiredRevision() + 1 );
-		CFIntBuffMimeTypeByUNameIdxKey existingKeyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey existingKeyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		existingKeyUNameIdx.setRequiredName( existing.getRequiredName() );
 
-		CFIntBuffMimeTypeByUNameIdxKey newKeyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey newKeyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		newKeyUNameIdx.setRequiredName( Buff.getRequiredName() );
 
 		// Check unique indexes
@@ -349,7 +338,7 @@ public class CFIntRamMimeTypeTable
 				"deleteMimeType",
 				pkey );
 		}
-		CFIntBuffMimeTypeByUNameIdxKey keyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey keyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		keyUNameIdx.setRequiredName( existing.getRequiredName() );
 
 		// Validate reverse foreign keys
@@ -393,7 +382,7 @@ public class CFIntRamMimeTypeTable
 	public void deleteMimeTypeByUNameIdx( ICFSecAuthorization Authorization,
 		String argName )
 	{
-		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntFactory().getFactoryMimeType().newByUNameIdxKey();
+		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		key.setRequiredName( argName );
 		deleteMimeTypeByUNameIdx( Authorization, key );
 	}
