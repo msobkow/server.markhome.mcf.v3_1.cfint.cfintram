@@ -51,21 +51,21 @@ public class CFIntRamMajorVersionTable
 	implements ICFIntMajorVersionTable
 {
 	private ICFIntSchema schema;
-	private Map< ICFLibKeyHash256,
+	private Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffMajorVersion > dictByPKey
-		= new HashMap< ICFLibKeyHash256,
+		= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffMajorVersion >();
 	private Map< CFIntBuffMajorVersionByTenantIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffMajorVersion >> dictByTenantIdx
 		= new HashMap< CFIntBuffMajorVersionByTenantIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffMajorVersion >>();
 	private Map< CFIntBuffMajorVersionBySubProjectIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffMajorVersion >> dictBySubProjectIdx
 		= new HashMap< CFIntBuffMajorVersionBySubProjectIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffMajorVersion >>();
 	private Map< CFIntBuffMajorVersionByNameIdxKey,
 			CFIntBuffMajorVersion > dictByNameIdx
@@ -87,7 +87,7 @@ public class CFIntRamMajorVersionTable
 		final String S_ProcName = "createMajorVersion";
 		
 		CFIntBuffMajorVersion Buff = (CFIntBuffMajorVersion)ensureRec(iBuff);
-		ICFLibKeyHash256 pkey;
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey;
 		pkey = schema.nextMajorVersionIdGen();
 		Buff.setRequiredId( pkey );
 		CFIntBuffMajorVersionByTenantIdxKey keyTenantIdx = (CFIntBuffMajorVersionByTenantIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newByTenantIdxKey();
@@ -160,22 +160,22 @@ public class CFIntRamMajorVersionTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictTenantIdx;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictTenantIdx;
 		if( dictByTenantIdx.containsKey( keyTenantIdx ) ) {
 			subdictTenantIdx = dictByTenantIdx.get( keyTenantIdx );
 		}
 		else {
-			subdictTenantIdx = new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			subdictTenantIdx = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictByTenantIdx.put( keyTenantIdx, subdictTenantIdx );
 		}
 		subdictTenantIdx.put( pkey, Buff );
 
-		Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictSubProjectIdx;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictSubProjectIdx;
 		if( dictBySubProjectIdx.containsKey( keySubProjectIdx ) ) {
 			subdictSubProjectIdx = dictBySubProjectIdx.get( keySubProjectIdx );
 		}
 		else {
-			subdictSubProjectIdx = new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			subdictSubProjectIdx = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictBySubProjectIdx.put( keySubProjectIdx, subdictSubProjectIdx );
 		}
 		subdictSubProjectIdx.put( pkey, Buff );
@@ -200,7 +200,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readDerived";
 		ICFIntMajorVersion buff;
@@ -218,7 +218,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.lockDerived";
 		ICFIntMajorVersion buff;
@@ -245,7 +245,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TenantId )
+		$implIJavaAtomType$ TenantId )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByTenantIdx";
 		CFIntBuffMajorVersionByTenantIdxKey key = (CFIntBuffMajorVersionByTenantIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newByTenantIdxKey();
@@ -253,7 +253,7 @@ public class CFIntRamMajorVersionTable
 		key.setRequiredTenantId( TenantId );
 		ICFIntMajorVersion[] recArray;
 		if( dictByTenantIdx.containsKey( key ) ) {
-			Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictTenantIdx
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictTenantIdx
 				= dictByTenantIdx.get( key );
 			recArray = new ICFIntMajorVersion[ subdictTenantIdx.size() ];
 			Iterator< CFIntBuffMajorVersion > iter = subdictTenantIdx.values().iterator();
@@ -263,8 +263,8 @@ public class CFIntRamMajorVersionTable
 			}
 		}
 		else {
-			Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictTenantIdx
-				= new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictTenantIdx
+				= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictByTenantIdx.put( key, subdictTenantIdx );
 			recArray = new ICFIntMajorVersion[0];
 		}
@@ -273,7 +273,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion[] readDerivedBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 SubProjectId )
+		$implIJavaAtomType$ SubProjectId )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readDerivedBySubProjectIdx";
 		CFIntBuffMajorVersionBySubProjectIdxKey key = (CFIntBuffMajorVersionBySubProjectIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newBySubProjectIdxKey();
@@ -281,7 +281,7 @@ public class CFIntRamMajorVersionTable
 		key.setRequiredSubProjectId( SubProjectId );
 		ICFIntMajorVersion[] recArray;
 		if( dictBySubProjectIdx.containsKey( key ) ) {
-			Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictSubProjectIdx
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictSubProjectIdx
 				= dictBySubProjectIdx.get( key );
 			recArray = new ICFIntMajorVersion[ subdictSubProjectIdx.size() ];
 			Iterator< CFIntBuffMajorVersion > iter = subdictSubProjectIdx.values().iterator();
@@ -291,8 +291,8 @@ public class CFIntRamMajorVersionTable
 			}
 		}
 		else {
-			Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdictSubProjectIdx
-				= new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdictSubProjectIdx
+				= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictBySubProjectIdx.put( key, subdictSubProjectIdx );
 			recArray = new ICFIntMajorVersion[0];
 		}
@@ -301,8 +301,8 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 SubProjectId,
-		String Name )
+		$implIJavaAtomType$ SubProjectId,
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByNameIdx";
 		CFIntBuffMajorVersionByNameIdxKey key = (CFIntBuffMajorVersionByNameIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newByNameIdxKey();
@@ -321,7 +321,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 Id )
+		$implIJavaAtomType$ Id )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readDerivedByIdIdx() ";
 		ICFIntMajorVersion buff;
@@ -336,7 +336,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readRec";
 		ICFIntMajorVersion buff = readDerived( Authorization, PKey );
@@ -348,7 +348,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		ICFIntMajorVersion buff = readDerived( Authorization, PKey );
@@ -376,7 +376,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 Id )
+		$implIJavaAtomType$ Id )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readRecByIdIdx() ";
 		ICFIntMajorVersion buff = readDerivedByIdIdx( Authorization,
@@ -391,7 +391,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TenantId )
+		$implIJavaAtomType$ TenantId )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readRecByTenantIdx() ";
 		ICFIntMajorVersion buff;
@@ -409,7 +409,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion[] readRecBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 SubProjectId )
+		$implIJavaAtomType$ SubProjectId )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readRecBySubProjectIdx() ";
 		ICFIntMajorVersion buff;
@@ -427,8 +427,8 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public ICFIntMajorVersion readRecByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 SubProjectId,
-		String Name )
+		$implIJavaAtomType$ SubProjectId,
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamMajorVersion.readRecByNameIdx() ";
 		ICFIntMajorVersion buff = readDerivedByNameIdx( Authorization,
@@ -446,7 +446,7 @@ public class CFIntRamMajorVersionTable
 		ICFIntMajorVersion iBuff )
 	{
 		CFIntBuffMajorVersion Buff = (CFIntBuffMajorVersion)ensureRec(iBuff);
-		ICFLibKeyHash256 pkey = (ICFLibKeyHash256)Buff.getPKey();
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)Buff.getPKey();
 		CFIntBuffMajorVersion existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),
@@ -539,7 +539,7 @@ public class CFIntRamMajorVersionTable
 
 		// Update is valid
 
-		Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -552,7 +552,7 @@ public class CFIntRamMajorVersionTable
 			subdict = dictByTenantIdx.get( newKeyTenantIdx );
 		}
 		else {
-			subdict = new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			subdict = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictByTenantIdx.put( newKeyTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -565,7 +565,7 @@ public class CFIntRamMajorVersionTable
 			subdict = dictBySubProjectIdx.get( newKeySubProjectIdx );
 		}
 		else {
-			subdict = new HashMap< ICFLibKeyHash256, CFIntBuffMajorVersion >();
+			subdict = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion >();
 			dictBySubProjectIdx.put( newKeySubProjectIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -583,7 +583,7 @@ public class CFIntRamMajorVersionTable
 		final String S_ProcName = "CFIntRamMajorVersionTable.deleteMajorVersion() ";
 		CFIntBuffMajorVersion Buff = (CFIntBuffMajorVersion)ensureRec(iBuff);
 		int classCode;
-		ICFLibKeyHash256 pkey = (ICFLibKeyHash256)(Buff.getPKey());
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(Buff.getPKey());
 		CFIntBuffMajorVersion existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
@@ -609,7 +609,7 @@ public class CFIntRamMajorVersionTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< ICFLibKeyHash256, CFIntBuffMajorVersion > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMajorVersion > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -624,7 +624,7 @@ public class CFIntRamMajorVersionTable
 	}
 	@Override
 	public void deleteMajorVersionByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -651,7 +651,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public void deleteMajorVersionByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argTenantId )
 	{
 		CFIntBuffMajorVersionByTenantIdxKey key = (CFIntBuffMajorVersionByTenantIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newByTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
@@ -687,7 +687,7 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public void deleteMajorVersionBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argSubProjectId )
 	{
 		CFIntBuffMajorVersionBySubProjectIdxKey key = (CFIntBuffMajorVersionBySubProjectIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newBySubProjectIdxKey();
 		key.setRequiredSubProjectId( argSubProjectId );
@@ -723,8 +723,8 @@ public class CFIntRamMajorVersionTable
 
 	@Override
 	public void deleteMajorVersionByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId,
-		String argName )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argSubProjectId,
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argName )
 	{
 		CFIntBuffMajorVersionByNameIdxKey key = (CFIntBuffMajorVersionByNameIdxKey)schema.getCFIntBuffFactory().getFactoryMajorVersion().newByNameIdxKey();
 		key.setRequiredSubProjectId( argSubProjectId );

@@ -51,9 +51,9 @@ public class CFIntRamMimeTypeTable
 	implements ICFIntMimeTypeTable
 {
 	private ICFIntSchema schema;
-	private Map< Integer,
+	private Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffMimeType > dictByPKey
-		= new HashMap< Integer,
+		= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffMimeType >();
 	private Map< CFIntBuffMimeTypeByUNameIdxKey,
 			CFIntBuffMimeType > dictByUNameIdx
@@ -75,7 +75,7 @@ public class CFIntRamMimeTypeTable
 		final String S_ProcName = "createMimeType";
 		
 		CFIntBuffMimeType Buff = (CFIntBuffMimeType)ensureRec(iBuff);
-		Integer pkey;
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey;
 		pkey = schema.nextMimeTypeIdGen();
 		Buff.setRequiredMimeTypeId( pkey );
 		CFIntBuffMimeTypeByUNameIdxKey keyUNameIdx = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
@@ -121,7 +121,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readDerived( ICFSecAuthorization Authorization,
-		Integer PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readDerived";
 		ICFIntMimeType buff;
@@ -139,7 +139,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType lockDerived( ICFSecAuthorization Authorization,
-		Integer PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMimeType.lockDerived";
 		ICFIntMimeType buff;
@@ -166,7 +166,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		String Name )
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readDerivedByUNameIdx";
 		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
@@ -184,7 +184,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		int MimeTypeId )
+		$implIJavaAtomType$ MimeTypeId )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readDerivedByIdIdx() ";
 		ICFIntMimeType buff;
@@ -199,7 +199,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readRec( ICFSecAuthorization Authorization,
-		Integer PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readRec";
 		ICFIntMimeType buff = readDerived( Authorization, PKey );
@@ -211,7 +211,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType lockRec( ICFSecAuthorization Authorization,
-		Integer PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		ICFIntMimeType buff = readDerived( Authorization, PKey );
@@ -239,7 +239,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readRecByIdIdx( ICFSecAuthorization Authorization,
-		int MimeTypeId )
+		$implIJavaAtomType$ MimeTypeId )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readRecByIdIdx() ";
 		ICFIntMimeType buff = readDerivedByIdIdx( Authorization,
@@ -254,7 +254,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public ICFIntMimeType readRecByUNameIdx( ICFSecAuthorization Authorization,
-		String Name )
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamMimeType.readRecByUNameIdx() ";
 		ICFIntMimeType buff = readDerivedByUNameIdx( Authorization,
@@ -271,7 +271,7 @@ public class CFIntRamMimeTypeTable
 		ICFIntMimeType iBuff )
 	{
 		CFIntBuffMimeType Buff = (CFIntBuffMimeType)ensureRec(iBuff);
-		Integer pkey = (Integer)Buff.getPKey();
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)Buff.getPKey();
 		CFIntBuffMimeType existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),
@@ -310,7 +310,7 @@ public class CFIntRamMimeTypeTable
 
 		// Update is valid
 
-		Map< Integer, CFIntBuffMimeType > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMimeType > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -328,7 +328,7 @@ public class CFIntRamMimeTypeTable
 		final String S_ProcName = "CFIntRamMimeTypeTable.deleteMimeType() ";
 		CFIntBuffMimeType Buff = (CFIntBuffMimeType)ensureRec(iBuff);
 		int classCode;
-		Integer pkey = (Integer)(Buff.getPKey());
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(Buff.getPKey());
 		CFIntBuffMimeType existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
@@ -345,7 +345,7 @@ public class CFIntRamMimeTypeTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< Integer, CFIntBuffMimeType > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffMimeType > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -354,7 +354,7 @@ public class CFIntRamMimeTypeTable
 	}
 	@Override
 	public void deleteMimeTypeByIdIdx( ICFSecAuthorization Authorization,
-		Integer argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -381,7 +381,7 @@ public class CFIntRamMimeTypeTable
 
 	@Override
 	public void deleteMimeTypeByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argName )
 	{
 		CFIntBuffMimeTypeByUNameIdxKey key = (CFIntBuffMimeTypeByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryMimeType().newByUNameIdxKey();
 		key.setRequiredName( argName );

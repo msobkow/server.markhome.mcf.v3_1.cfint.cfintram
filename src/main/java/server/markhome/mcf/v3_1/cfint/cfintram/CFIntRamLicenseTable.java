@@ -51,21 +51,21 @@ public class CFIntRamLicenseTable
 	implements ICFIntLicenseTable
 {
 	private ICFIntSchema schema;
-	private Map< ICFLibKeyHash256,
+	private Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffLicense > dictByPKey
-		= new HashMap< ICFLibKeyHash256,
+		= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 				CFIntBuffLicense >();
 	private Map< CFIntBuffLicenseByLicnTenantIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffLicense >> dictByLicnTenantIdx
 		= new HashMap< CFIntBuffLicenseByLicnTenantIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffLicense >>();
 	private Map< CFIntBuffLicenseByDomainIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffLicense >> dictByDomainIdx
 		= new HashMap< CFIntBuffLicenseByDomainIdxKey,
-				Map< ICFLibKeyHash256,
+				Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$,
 					CFIntBuffLicense >>();
 	private Map< CFIntBuffLicenseByUNameIdxKey,
 			CFIntBuffLicense > dictByUNameIdx
@@ -87,7 +87,7 @@ public class CFIntRamLicenseTable
 		final String S_ProcName = "createLicense";
 		
 		CFIntBuffLicense Buff = (CFIntBuffLicense)ensureRec(iBuff);
-		ICFLibKeyHash256 pkey;
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey;
 		pkey = schema.nextLicenseIdGen();
 		Buff.setRequiredId( pkey );
 		CFIntBuffLicenseByLicnTenantIdxKey keyLicnTenantIdx = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByLicnTenantIdxKey();
@@ -160,22 +160,22 @@ public class CFIntRamLicenseTable
 
 		dictByPKey.put( pkey, Buff );
 
-		Map< ICFLibKeyHash256, CFIntBuffLicense > subdictLicnTenantIdx;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictLicnTenantIdx;
 		if( dictByLicnTenantIdx.containsKey( keyLicnTenantIdx ) ) {
 			subdictLicnTenantIdx = dictByLicnTenantIdx.get( keyLicnTenantIdx );
 		}
 		else {
-			subdictLicnTenantIdx = new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			subdictLicnTenantIdx = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByLicnTenantIdx.put( keyLicnTenantIdx, subdictLicnTenantIdx );
 		}
 		subdictLicnTenantIdx.put( pkey, Buff );
 
-		Map< ICFLibKeyHash256, CFIntBuffLicense > subdictDomainIdx;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictDomainIdx;
 		if( dictByDomainIdx.containsKey( keyDomainIdx ) ) {
 			subdictDomainIdx = dictByDomainIdx.get( keyDomainIdx );
 		}
 		else {
-			subdictDomainIdx = new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			subdictDomainIdx = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByDomainIdx.put( keyDomainIdx, subdictDomainIdx );
 		}
 		subdictDomainIdx.put( pkey, Buff );
@@ -200,7 +200,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerived";
 		ICFIntLicense buff;
@@ -218,7 +218,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamLicense.lockDerived";
 		ICFIntLicense buff;
@@ -245,7 +245,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense[] readDerivedByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TenantId )
+		$implIJavaAtomType$ TenantId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByLicnTenantIdx";
 		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByLicnTenantIdxKey();
@@ -253,7 +253,7 @@ public class CFIntRamLicenseTable
 		key.setRequiredTenantId( TenantId );
 		ICFIntLicense[] recArray;
 		if( dictByLicnTenantIdx.containsKey( key ) ) {
-			Map< ICFLibKeyHash256, CFIntBuffLicense > subdictLicnTenantIdx
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictLicnTenantIdx
 				= dictByLicnTenantIdx.get( key );
 			recArray = new ICFIntLicense[ subdictLicnTenantIdx.size() ];
 			Iterator< CFIntBuffLicense > iter = subdictLicnTenantIdx.values().iterator();
@@ -263,8 +263,8 @@ public class CFIntRamLicenseTable
 			}
 		}
 		else {
-			Map< ICFLibKeyHash256, CFIntBuffLicense > subdictLicnTenantIdx
-				= new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictLicnTenantIdx
+				= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByLicnTenantIdx.put( key, subdictLicnTenantIdx );
 			recArray = new ICFIntLicense[0];
 		}
@@ -273,7 +273,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense[] readDerivedByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TopDomainId )
+		$implIJavaAtomType$ TopDomainId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByDomainIdx";
 		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByDomainIdxKey();
@@ -281,7 +281,7 @@ public class CFIntRamLicenseTable
 		key.setRequiredTopDomainId( TopDomainId );
 		ICFIntLicense[] recArray;
 		if( dictByDomainIdx.containsKey( key ) ) {
-			Map< ICFLibKeyHash256, CFIntBuffLicense > subdictDomainIdx
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictDomainIdx
 				= dictByDomainIdx.get( key );
 			recArray = new ICFIntLicense[ subdictDomainIdx.size() ];
 			Iterator< CFIntBuffLicense > iter = subdictDomainIdx.values().iterator();
@@ -291,8 +291,8 @@ public class CFIntRamLicenseTable
 			}
 		}
 		else {
-			Map< ICFLibKeyHash256, CFIntBuffLicense > subdictDomainIdx
-				= new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdictDomainIdx
+				= new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByDomainIdx.put( key, subdictDomainIdx );
 			recArray = new ICFIntLicense[0];
 		}
@@ -301,8 +301,8 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TopDomainId,
-		String Name )
+		$implIJavaAtomType$ TopDomainId,
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByUNameIdx";
 		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByUNameIdxKey();
@@ -321,7 +321,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 Id )
+		$implIJavaAtomType$ Id )
 	{
 		final String S_ProcName = "CFIntRamLicense.readDerivedByIdIdx() ";
 		ICFIntLicense buff;
@@ -336,7 +336,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "CFIntRamLicense.readRec";
 		ICFIntLicense buff = readDerived( Authorization, PKey );
@@ -348,7 +348,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		ICFIntLicense buff = readDerived( Authorization, PKey );
@@ -376,7 +376,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 Id )
+		$implIJavaAtomType$ Id )
 	{
 		final String S_ProcName = "CFIntRamLicense.readRecByIdIdx() ";
 		ICFIntLicense buff = readDerivedByIdIdx( Authorization,
@@ -391,7 +391,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense[] readRecByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TenantId )
+		$implIJavaAtomType$ TenantId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readRecByLicnTenantIdx() ";
 		ICFIntLicense buff;
@@ -409,7 +409,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense[] readRecByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TopDomainId )
+		$implIJavaAtomType$ TopDomainId )
 	{
 		final String S_ProcName = "CFIntRamLicense.readRecByDomainIdx() ";
 		ICFIntLicense buff;
@@ -427,8 +427,8 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public ICFIntLicense readRecByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 TopDomainId,
-		String Name )
+		$implIJavaAtomType$ TopDomainId,
+		$implIJavaAtomType$ Name )
 	{
 		final String S_ProcName = "CFIntRamLicense.readRecByUNameIdx() ";
 		ICFIntLicense buff = readDerivedByUNameIdx( Authorization,
@@ -446,7 +446,7 @@ public class CFIntRamLicenseTable
 		ICFIntLicense iBuff )
 	{
 		CFIntBuffLicense Buff = (CFIntBuffLicense)ensureRec(iBuff);
-		ICFLibKeyHash256 pkey = (ICFLibKeyHash256)Buff.getPKey();
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)Buff.getPKey();
 		CFIntBuffLicense existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			throw new CFLibStaleCacheDetectedException( getClass(),
@@ -539,7 +539,7 @@ public class CFIntRamLicenseTable
 
 		// Update is valid
 
-		Map< ICFLibKeyHash256, CFIntBuffLicense > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdict;
 
 		dictByPKey.remove( pkey );
 		dictByPKey.put( pkey, Buff );
@@ -552,7 +552,7 @@ public class CFIntRamLicenseTable
 			subdict = dictByLicnTenantIdx.get( newKeyLicnTenantIdx );
 		}
 		else {
-			subdict = new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			subdict = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByLicnTenantIdx.put( newKeyLicnTenantIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -565,7 +565,7 @@ public class CFIntRamLicenseTable
 			subdict = dictByDomainIdx.get( newKeyDomainIdx );
 		}
 		else {
-			subdict = new HashMap< ICFLibKeyHash256, CFIntBuffLicense >();
+			subdict = new HashMap< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense >();
 			dictByDomainIdx.put( newKeyDomainIdx, subdict );
 		}
 		subdict.put( pkey, Buff );
@@ -583,7 +583,7 @@ public class CFIntRamLicenseTable
 		final String S_ProcName = "CFIntRamLicenseTable.deleteLicense() ";
 		CFIntBuffLicense Buff = (CFIntBuffLicense)ensureRec(iBuff);
 		int classCode;
-		ICFLibKeyHash256 pkey = (ICFLibKeyHash256)(Buff.getPKey());
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ pkey = ($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(Buff.getPKey());
 		CFIntBuffLicense existing = dictByPKey.get( pkey );
 		if( existing == null ) {
 			return;
@@ -607,7 +607,7 @@ public class CFIntRamLicenseTable
 		// Validate reverse foreign keys
 
 		// Delete is valid
-		Map< ICFLibKeyHash256, CFIntBuffLicense > subdict;
+		Map< $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$, CFIntBuffLicense > subdict;
 
 		dictByPKey.remove( pkey );
 
@@ -622,7 +622,7 @@ public class CFIntRamLicenseTable
 	}
 	@Override
 	public void deleteLicenseByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		boolean anyNotNull = false;
 		anyNotNull = true;
@@ -649,7 +649,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public void deleteLicenseByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argTenantId )
 	{
 		CFIntBuffLicenseByLicnTenantIdxKey key = (CFIntBuffLicenseByLicnTenantIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByLicnTenantIdxKey();
 		key.setRequiredTenantId( argTenantId );
@@ -685,7 +685,7 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public void deleteLicenseByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argTopDomainId )
 	{
 		CFIntBuffLicenseByDomainIdxKey key = (CFIntBuffLicenseByDomainIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByDomainIdxKey();
 		key.setRequiredTopDomainId( argTopDomainId );
@@ -721,8 +721,8 @@ public class CFIntRamLicenseTable
 
 	@Override
 	public void deleteLicenseByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId,
-		String argName )
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argTopDomainId,
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ argName )
 	{
 		CFIntBuffLicenseByUNameIdxKey key = (CFIntBuffLicenseByUNameIdxKey)schema.getCFIntBuffFactory().getFactoryLicense().newByUNameIdxKey();
 		key.setRequiredTopDomainId( argTopDomainId );
