@@ -177,6 +177,33 @@
           			<useModulePath>false</useModulePath>
         		</configuration>
       		</plugin>
+			<!-- plugin>
+				<groupId>org.teavm</groupId>
+				<artifactId>teavm-maven-plugin</artifactId>
+				<version>0.15.0</version>
+				<executions>
+					<execution>
+						<id>compile-to-javascript</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>compile-javascript</goal>
+						</goals>
+						<configuration>
+							<mainClass>server.markhome.mcf.v3_1.cfint.cfintram.CFIntRamLibraryEntry</mainClass> 
+							<targetDirectory>${project.build.directory}/generated-js</targetDirectory>
+							<targetFileName>cfint-ram-module.js</targetFileName>
+							<jsTargetType>WEBASSEMBLY_GC</jsTargetType>
+							<jsModuleType>ES2015</jsModuleType>
+							<minifying>false</minifying> 
+							<optimizationLevel>SIMPLE</optimizationLevel>
+							<sourceMapsGenerated>true</sourceMapsGenerated>
+							<preservedClasses>
+								<string>server.markhome.mcf.v3_1.cfint.cfintram.CFIntRamLibraryEntry</string>
+							</preservedClasses>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin-->
 		</plugins>
 	</build>
 
