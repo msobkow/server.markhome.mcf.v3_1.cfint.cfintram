@@ -4,14 +4,14 @@
   <parent>
     <groupId>server.markhome.mcf</groupId>
     <artifactId>server.markhome.mcf.v3_1</artifactId>
-    <version>3.1.42-2026-09-01T17:52:00Z</version>
+    <version>3.1.42-2026-09-01T22:42:40Z</version>
   </parent>
 
   <groupId>server.markhome.mcf.v3_1</groupId>
   <artifactId>server.markhome.mcf.v3_1.cfint.cfintram</artifactId>
-  <version>3.1.42-2026-09-01T17:52:00Z</version>
+  <version>3.1.42-2026-09-01T22:42:40Z</version>
   <name>server.markhome.mcf.v3_1.cfint.cfintram</name>
-  <description>mcf 3.1.42-2026-09-01T17:52:00Z CFInt CFIntRam - Buffer RAM storageimplementation package</description>
+  <description>mcf 3.1.42-2026-09-01T22:42:40Z CFInt CFIntRam - Buffer RAM storageimplementation package</description>
   <url>mailto:mark.sobkow@gmail.com</url>
 
   <properties>
@@ -34,12 +34,12 @@
     <dependency>
       <groupId>server.markhome.mcf.v3_1</groupId>
       <artifactId>server.markhome.mcf.v3_1.cflib</artifactId>
-      <version>3.1.42-2026-09-01T17:52:00Z</version>
+      <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
       <groupId>server.markhome.mcf.v3_1</groupId>
       <artifactId>server.markhome.mcf.v3_1.cflib.dbutil</artifactId>
-      <version>3.1.42-2026-09-01T17:52:00Z</version>
+      <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>ch.qos.logback</groupId>
@@ -81,42 +81,42 @@
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecpub</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfint.cfintpub</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecprot</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfint.cfintprot</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfsec.cfsec</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecsaxloader</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfint.cfintsaxloader</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
     <dependency>
         <groupId>server.markhome.mcf.v3_1</groupId>
         <artifactId>server.markhome.mcf.v3_1.cfsec.cfsecram</artifactId>
-        <version>3.1.42-2026-09-01T17:52:00Z</version>
+        <version>3.1.42-2026-09-01T22:42:40Z</version>
     </dependency>
   </dependencies>
 
